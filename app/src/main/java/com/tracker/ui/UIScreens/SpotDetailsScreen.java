@@ -45,7 +45,7 @@ public class SpotDetailsScreen extends AppCompatActivity {
         setContentView(R.layout.activity_spot_details);
         barChart = findViewById(R.id.busynessChart);
         barChart.getDescription().setEnabled(false);
-        setData(5);
+        setData();
 
 
         Bundle extras = getIntent().getExtras();
@@ -65,7 +65,7 @@ public class SpotDetailsScreen extends AppCompatActivity {
         populateDummyData();
     }
 
-    public void setData(int count) {
+    public void setData() {
         Map<String, String> latestDaysRaport = getLastWeekRaport(getLast5DaysDate());
         ArrayList<BarEntry> yVals = new ArrayList<>();
         Object[] values = latestDaysRaport.values().toArray();
