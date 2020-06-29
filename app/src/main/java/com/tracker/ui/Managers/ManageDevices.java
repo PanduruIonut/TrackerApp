@@ -61,7 +61,7 @@ public class ManageDevices {
         Map<String, String> map = new HashMap<String, String>();
         for (int i = 0; i < latestDaysArray.size(); i++) {
             SharedPreferences prefs = MainActivity.context.getSharedPreferences(latestDaysArray.get(i), MODE_PRIVATE);
-            ArrayList<String> devicesPerDay = new ArrayList<>();
+            ArrayList<String> devicesPerDay;
             try {
                 devicesPerDay = (ArrayList<String>) ObjectSerializer.deserialize(prefs.getString(latestDaysArray.get(i), ObjectSerializer.serialize(new ArrayList<String>())));
                 map.put(latestDaysArray.get(i), String.valueOf(devicesPerDay.get(0).split(",").length));

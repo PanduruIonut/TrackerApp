@@ -25,17 +25,15 @@ import java.util.Random;
 
 import static com.tracker.ui.Managers.ManageDevices.getLast5DaysDate;
 import static com.tracker.ui.Managers.ManageDevices.getLastWeekRaport;
+import static java.lang.Integer.parseInt;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class SpotDetailsScreen extends AppCompatActivity {
 
     BarChart barChart;
-    TextView placeTitleTV;
-    ProgressBar percentagePB, percentagePB2;
-    String title;
-    TextView roomName;
-    TextView roomName2;
-    TextView percentageDesc, percentageDesc2;
+    ProgressBar percentagePB, percentagePB2,percentageMainPB;
+    String title, percentageReceived, statusAvi;
+    TextView roomName2, aviTV, roomName, percentageDesc, percentageDesc2, placeTitleTV;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint({"WrongConstant", "SetTextI18n"})
@@ -45,7 +43,6 @@ public class SpotDetailsScreen extends AppCompatActivity {
         setContentView(R.layout.activity_spot_details);
         barChart = findViewById(R.id.busynessChart);
         barChart.getDescription().setEnabled(false);
-        setData();
 
 
         Bundle extras = getIntent().getExtras();
@@ -53,8 +50,11 @@ public class SpotDetailsScreen extends AppCompatActivity {
             title = "error";
         } else {
             title = extras.getString("placeName");
+            percentageReceived = extras.getString("percentage");
+            statusAvi = extras.getString("percentageDesc");
         }
         placeTitleTV = findViewById(R.id.spotName);
+        percentageMainPB = findViewById(R.id.percentageBar);
         percentagePB = findViewById(R.id.roomPercentageBar);
         percentagePB2 = findViewById(R.id.room2PercentageBar);
         placeTitleTV.setText(title);
@@ -62,16 +62,42 @@ public class SpotDetailsScreen extends AppCompatActivity {
         roomName2 = findViewById(R.id.room2Name);
         percentageDesc = findViewById(R.id.percentageStatus);
         percentageDesc2 = findViewById(R.id.percentageStatus2);
+        aviTV = findViewById(R.id.main_percentage_text);
+        percentagePB.setProgress(parseInt(percentageReceived));
+        aviTV.setText(statusAvi + " - " + percentageReceived + "%");
+
+        if (parseInt(percentageReceived) <= 35) {
+            percentageMainPB.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+            percentageMainPB.getProgressDrawable().setColorFilter(
+                    Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+
+        } else if (parseInt(percentageReceived) >= 35 && parseInt(percentageReceived) <= 75) {
+            percentageMainPB.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+            percentageMainPB.getProgressDrawable().setColorFilter(
+                    Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+
+
+        } else if (parseInt(percentageReceived) >= 75) {
+            percentageMainPB.setProgressTintList(ColorStateList.valueOf(Color.RED));
+            percentageMainPB.getProgressDrawable().setColorFilter(
+                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
         populateDummyData();
+        setChart();
     }
 
-    public void setData() {
+    public void setChart() {
         Map<String, String> latestDaysRaport = getLastWeekRaport(getLast5DaysDate());
         ArrayList<BarEntry> yVals = new ArrayList<>();
         Object[] values = latestDaysRaport.values().toArray();
 
         for (int i = 0; i < latestDaysRaport.keySet().size(); i++) {
-            yVals.add(new BarEntry(i, Integer.parseInt(values[i].toString())));
+            if(title.equals(getString(R.string.myHome))) {
+                yVals.add(new BarEntry(i, parseInt(values[i].toString())));
+            }else{
+                int value = (int) (Math.random()*100);
+                yVals.add(new BarEntry(i, value));
+            }
         }
         BarDataSet set = new BarDataSet(yVals, "Previous Days");
         set.setColors(ColorTemplate.MATERIAL_COLORS);
@@ -94,8 +120,8 @@ public class SpotDetailsScreen extends AppCompatActivity {
         if (title.equals(this.getString(R.string.myHome))) {
             roomName.setText("Living");
             roomName2.setText("Bedroom");
-            percentageDesc.setText(ManageDevices.getStatusPerPercent(percentage) + " " + percentage + " " + "%");
-            percentageDesc2.setText(ManageDevices.getStatusPerPercent(percentage2) + "" + percentage2 + " " + "%");
+            percentageDesc.setText(ManageDevices.getStatusPerPercent(percentage) + percentage + " " + "%");
+            percentageDesc2.setText(ManageDevices.getStatusPerPercent(percentage2) + percentage2 + " " + "%");
         } else if (title.equals(getString(R.string.UlbsStiinte))) {
             roomName.setText("A24");
             roomName2.setText("Laborator 1");
