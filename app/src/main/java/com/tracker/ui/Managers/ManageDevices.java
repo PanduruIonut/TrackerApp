@@ -139,6 +139,18 @@ public class ManageDevices {
         return "";
     }
 
+    public static String getStatusPerPercent(int percent) {
+        if (percent <= 35) {
+            return "Not Busy";
+        } else if (percent >= 35 && percent <= 75) {
+            return "Crowded";
+        } else if (percent >= 75) {
+            return "Full ";
+        }
+        return "";
+    }
+
+
     public static float getPercentage(int devices, float personLimit) {
         return (devices / personLimit) * 100;
     }
