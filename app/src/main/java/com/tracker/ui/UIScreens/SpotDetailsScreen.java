@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.UIScreens;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
@@ -16,12 +16,13 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.tracker.ui.R;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-import static com.tracker.ui.ManageDevices.getLast5DaysDate;
-import static com.tracker.ui.ManageDevices.getLastWeekRaport;
+import static com.tracker.ui.Managers.ManageDevices.getLast5DaysDate;
+import static com.tracker.ui.Managers.ManageDevices.getLastWeekRaport;
 import static java.lang.Integer.parseInt;
 
 public class SpotDetailsScreen extends AppCompatActivity {

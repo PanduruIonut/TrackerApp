@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.Managers;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

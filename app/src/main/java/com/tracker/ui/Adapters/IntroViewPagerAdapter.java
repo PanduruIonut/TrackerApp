@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.tracker.ui.R;
+import com.tracker.ui.UIScreens.ScreenItem;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.UIScreens;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -21,6 +21,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.tracker.ui.MainActivity;
+import com.tracker.ui.Managers.ManageDevices;
+import com.tracker.ui.Models.ItemsModel;
+import com.tracker.ui.R;
 
 import java.util.ArrayList;
 import java.util.List;

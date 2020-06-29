@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.UIScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
+import com.tracker.ui.Adapters.IntroViewPagerAdapter;
+import com.tracker.ui.MainActivity;
+import com.tracker.ui.R;
 
 import java.util.ArrayList;
 import java.util.List;

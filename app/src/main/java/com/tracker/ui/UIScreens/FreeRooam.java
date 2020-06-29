@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.UIScreens;
 
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -23,6 +23,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.tracker.ui.MainActivity;
+import com.tracker.ui.R;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -37,7 +37,7 @@
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 
-        <activity android:name=".IntroActivity">
+        <activity android:name=".UIScreens.IntroActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,10 +45,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CityScreen" />
-        <activity android:name=".ItemsPreviewActivity" />
-        <activity android:name=".SpotDetailsScreen" />
-        <activity android:name=".FreeRooam" />
+        <activity android:name=".UIScreens.CityScreen" />
+        <activity android:name=".UIScreens.ItemsPreviewActivity" />
+        <activity android:name=".UIScreens.SpotDetailsScreen" />
+        <activity android:name=".UIScreens.FreeRooam" />
 
     </application>
 

@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.UIScreens;
 
 public class ScreenItem {
 

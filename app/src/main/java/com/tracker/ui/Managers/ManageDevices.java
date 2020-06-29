@@ -1,10 +1,12 @@
-package com.tracker.ui;
+package com.tracker.ui.Managers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import org.json.JSONException;
+import com.tracker.ui.MainActivity;
+import com.tracker.ui.R;
+
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -19,7 +21,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ManageDevices {
 
-    static void computeDevices(JSONObject devices) throws JSONException {
+    public static void computeDevices(JSONObject devices) {
         try {
 
             Date c = Calendar.getInstance().getTime();
@@ -137,7 +139,7 @@ public class ManageDevices {
         return "";
     }
 
-    static float getPercentage(int devices, float personLimit) {
+    public static float getPercentage(int devices, float personLimit) {
         return (devices / personLimit) * 100;
     }
 
@@ -155,7 +157,6 @@ public class ManageDevices {
             editor4.putString("27-Jun-2020", ObjectSerializer.serialize(devicesArray)).apply();
             SharedPreferences.Editor editor5 = MainActivity.context.getSharedPreferences("28-Jun-2020", MODE_PRIVATE).edit();
             editor5.putString("28-Jun-2020", ObjectSerializer.serialize(devicesArray)).apply();
-
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.UIScreens;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -26,6 +26,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.tracker.ui.MainActivity;
+import com.tracker.ui.Managers.ManageDevices;
+import com.tracker.ui.Models.ItemsModel;
+import com.tracker.ui.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +92,8 @@ public class ItemsPreviewActivity extends AppCompatActivity implements Handler.C
         private List<ItemsModel> itemsModelsl;
         private List<ItemsModel> itemsModelListFiltered;
         private Context context;
+        String  typeArray[] ={"Custom","Study", "Study", "PaperWork", "Fun", "PaperWork"};
+
 
         public CustomAdapter(List<ItemsModel> itemsModelsl, Context context) {
             this.itemsModelsl = itemsModelsl;
@@ -124,7 +131,7 @@ public class ItemsPreviewActivity extends AppCompatActivity implements Handler.C
 
             names.setText(itemsModelListFiltered.get(position).getName());
             emails.setText(itemsModelListFiltered.get(position).getEmail());
-            type.setText("Study");
+            type.setText(typeArray[position]);
             final int percentage = itemsModelListFiltered.get(position).getPercent();
             imageView.setImageResource(itemsModelListFiltered.get(position).getImages());
             progressBar.setProgress(percentage);
@@ -134,21 +141,18 @@ public class ItemsPreviewActivity extends AppCompatActivity implements Handler.C
                 progressBar.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
                 ;
 
-            } else if (percentage >= 35 && percentage <= 75) {
+            } else if (percentage <= 75) {
                 statusAvi = "Crowded - " + percentage + "%";
                 crowdedness.setText(statusAvi);
                 progressBar.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
 
-            } else if (percentage >= 75) {
+            } else {
                 statusAvi = "Full " + percentage + "%";
                 crowdedness.setText(statusAvi);
                 progressBar.setProgressTintList(ColorStateList.valueOf(Color.RED));
             }
 
             view.setOnClickListener(v -> {
-
-                Log.e("clicked", itemsModelListFiltered.get(position).getName());
-                Log.e("clicked", String.valueOf(itemsModelListFiltered.get(position).getPercent()));
                 Intent intent = new Intent(ItemsPreviewActivity.this, SpotDetailsScreen.class);
                 intent.putExtra("items", itemsModelListFiltered.get(position));
                 intent.putExtra("placeName", itemsModelListFiltered.get(position).getName());

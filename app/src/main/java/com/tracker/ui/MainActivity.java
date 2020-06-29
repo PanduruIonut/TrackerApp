@@ -19,6 +19,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.tracker.ui.Managers.ManageDevices;
+import com.tracker.ui.UIScreens.CityScreen;
+import com.tracker.ui.UIScreens.FreeRooam;
+import com.tracker.ui.UIScreens.ItemsPreviewActivity;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;

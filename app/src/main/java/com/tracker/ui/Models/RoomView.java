@@ -1,4 +1,4 @@
-package com.tracker.ui;
+package com.tracker.ui.Models;
 
 import android.content.Context;
 import android.util.AttributeSet;
