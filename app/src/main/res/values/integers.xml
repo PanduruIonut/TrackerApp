@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="myHome_maxSpots">4</integer>
+    <integer name="UlbsStiinte_maxSpots">120</integer>
+    <integer name="BibliotecaJudeteana_maxSpots">200</integer>
+    <integer name="UlbsDecanat_maxSpots">200</integer>
+    <integer name="Starbucks_maxSpots">45</integer>
+    <integer name="PostaRomana_maxSpots">25</integer>
+    </resources>

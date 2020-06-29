@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Tracker</string>
+    <string name="title">Tracker</string>
+    <string name="myHome">myHome</string>
+    <string name="UlbsStiinte">Ulbs Stiinte</string>
+    <string name="BibliotecaJudeteana">Biblioteca Judeteana</string>
+    <string name="UlbsDecanat">Ulbs Decanat</string>
+    <string name="Starbucks">Starbucks</string>
+    <string name="PostaRomana">Posta Romana</string>
+    <string name="PrimariaSibiu">Primaria Sibiu</string>
+    <string name="TeatrulRaduStanca">Teatrul Radu Stanca</string>
+
+    <string name="UlbsStiinteCoordLat">45.7908014</string>
+    <string name="UlbsStiinteCoordLong">24.1412743</string>
+
+    <string name="UlbsDecanatCoordLat">45.7907357</string>
+    <string name="UlbsDecanatCoordLong">24.1428155</string>
+
+    <string name="PrimariaSibiuCoordLat">45.7965556</string>
+    <string name="PrimariaSibiuCoordLong">24.1484717</string>
+
+    <string name="TeatrulRaduStancaCoordLat">45.7912257</string>
+    <string name="TeatrulRaduStancaCoordLong">24.1472256</string>
+</resources>
